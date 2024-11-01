@@ -39,15 +39,15 @@ class FeedTemplateTest {
 					return sei;
 				});
 		var render = this.feedTemplate.render(feed);
-		System.out.println(render);
+		log(render);
 
 		var result = parseFeed(render);
-		System.out.println("Feed Title: " + result.title());
-		System.out.println("Feed Description: " + result.description());
+		log("Feed Title: " + result.title());
+		log("Feed Description: " + result.description());
 		for (var entry : result.entries()) {
-			System.out.println("\nEntry:");
+			log("\nEntry:");
 			for (var field : entry.entrySet()) {
-				System.out.println(field.getKey() + ": " + field.getValue());
+				log(field.getKey() + ": " + field.getValue());
 			}
 
 		}
@@ -57,6 +57,10 @@ class FeedTemplateTest {
 		Assertions.assertEquals(result.entries().size() == 2, true, "there should be two entries!");
 		Assertions.assertEquals("new customer! A", result.entries().get(0).get("title"));
 		Assertions.assertEquals("new customer! B", result.entries().get(1).get("title"));
+	}
+
+	private static void log(String message) {
+		System.out.println(message);
 	}
 
 	record FeedResult(String title, String description, List<Map<String, Object>> entries) {
