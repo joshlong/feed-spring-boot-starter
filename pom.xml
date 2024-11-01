@@ -16,12 +16,12 @@
     <inceptionYear>2024</inceptionYear>
     <description>
         a Spring Boot starter for RSS/ATOM feed generation 
-        with ROME in a Spring Boot and GraalVM context.
+        with ROME in a Spring Boot and AOT/GraalVM context.
     </description>
     <name>feed-spring-boot-starter-root</name>
     <url>https://github.com/joshlong/feed-spring-boot-starter</url>
     <properties>
-        <java.version>21</java.version>
+        <java.version>17</java.version>
     </properties>
     <modules>
         <module>feed-spring-boot-starter</module>
