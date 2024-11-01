@@ -34,7 +34,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * registers GraalVM / Spring AOT hints for ROME RSS/ATOM feeds.
+ * registers GraalVM / Spring AOT hints for ROME RSS/ATOM feeds using the ROME RSS/ATOM
+ * library.
  *
  * @author Josh Long
  */
