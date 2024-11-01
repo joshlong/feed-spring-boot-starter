@@ -11,7 +11,7 @@
     </parent>
     <groupId>com.joshlong</groupId>
     <artifactId>feed-spring-boot-starter-root</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.3</version>
     <packaging>pom</packaging>
     <inceptionYear>2024</inceptionYear>
     <description>
