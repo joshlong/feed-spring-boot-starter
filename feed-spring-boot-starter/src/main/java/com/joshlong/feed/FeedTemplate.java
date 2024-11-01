@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
 
 /**
  * support for creating RSS and ATOM feeds with ROME
- * 
+ *
  * @author Josh Long
  */
 public class FeedTemplate {
@@ -61,17 +61,17 @@ public class FeedTemplate {
 		Assert.hasText(title, "the link must not be null");
 		Assert.notNull(posts, "the posts must not be null");
 		var entries = posts//
-			.stream()//
-			// .parallel()//
-			.map(i -> {
-				try {
-					return mapper.map(i);
-				}
-				catch (Exception e) {
-					throw new RuntimeException(e);
-				}
-			})//
-			.collect(Collectors.toList());
+				.stream()//
+				// .parallel()//
+				.map(i -> {
+					try {
+						return mapper.map(i);
+					}
+					catch (Exception e) {
+						throw new RuntimeException(e);
+					}
+				})//
+				.collect(Collectors.toList());
 		return this.buildFeed(feedType, title, link, description, entries);
 	}
 

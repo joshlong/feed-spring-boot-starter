@@ -34,14 +34,13 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * registers GraalVM AOT hints for ROME RSS/ATOM feeds.
- * 
+ * registers GraalVM / Spring AOT hints for ROME RSS/ATOM feeds.
+ *
  * @author Josh Long
  */
 class FeedRuntimeHintsRegistrar implements RuntimeHintsRegistrar {
 
 	private final Logger log = LoggerFactory.getLogger(getClass());
-
 
 	private static Set<TypeReference> findClassesInPackage(String packageName, TypeFilter typeFilter) {
 		var classPathScanningCandidateComponentProvider = new ClassPathScanningCandidateComponentProvider(false);
@@ -56,7 +55,7 @@ class FeedRuntimeHintsRegistrar implements RuntimeHintsRegistrar {
 	private static Set<TypeReference> findAnnotatedClassesInPackage(String packageName) {
 		return findClassesInPackage(packageName, (metadataReader, metadataReaderFactory) -> true);
 	}
-	
+
 	@Override
 	public void registerHints(RuntimeHints hints, ClassLoader classLoader) {
 
@@ -103,10 +102,8 @@ class FeedRuntimeHintsRegistrar implements RuntimeHintsRegistrar {
 		Assert.hasText(propertyName, "the propertyName must not be null");
 		Assert.hasText(propertyValue, "the propertyValue must not be null");
 		return Arrays //
-			.stream((propertyValue.contains(" ")) ? propertyValue.split(" ") : new String[] { propertyValue }) //
-			.map(String::trim)
-			.filter(xValue -> !xValue.isBlank())
-			.toList();
+				.stream((propertyValue.contains(" ")) ? propertyValue.split(" ") : new String[] { propertyValue }) //
+				.map(String::trim).filter(xValue -> !xValue.isBlank()).toList();
 
 	}
 
