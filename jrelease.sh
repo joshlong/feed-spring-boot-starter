@@ -31,10 +31,7 @@ git commit -am "releasing ${RELEASE_VERSION}" # release the main version
 
 ## RELEASE
 echo "releasing..."
-# we can do a dry run like this: mvn -Ppublish jreleaser:deploy -Djreleaser.dry.run=true -N -pl :lucene-spring-boot-starter-root
-# then do the rlease. this will push to maven central staging, then promote it automatically
-# the following is just to tell maven not to recursively deploy each project: mvn ....... -N -pl :lucene-spring-boot-starter-root
-mvn -Ppublish jreleaser:release -N -pl :lucene-spring-boot-starter-root
+mvn -Ppublish jreleaser:release -N -pl :feed-spring-boot-starter-root
 
 # clean up the mess we made.
 rm -rf $HOME/.jreleaser/{private,public}
